@@ -27,6 +27,7 @@ RegisterNetEvent("kloud-farm:client:pickProp", function(data)
     end
     _G.IsBusy = false
     ClearPedTasksImmediately(cache.ped)
+    if not DoesEntityExist(data.entity) then return end
     DeleteProp(data.entity)
     lib.callback("kloud-farm:callback:uprooted", 3000, nil, zoneData)
 end)
